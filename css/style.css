@@ -1,0 +1,32 @@
+/*
+ * Created by PhpStorm.
+ * User: nemzag
+ * Date: 2018-05-18
+ * Time: 11:25
+ */
+
+header {
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    opacity: 1;
+    /*
+    A remettre à 1 une fois le projet finalisé et que tout les messages d'erreur n'apparaissent plus.
+    */
+}
+
+main {
+    margin-top: 72px;
+    margin-bottom: 96px;
+}
+footer {
+    bottom: 0;
+    z-index: 100;
+    position: fixed;
+    /*
+    height: auto;
+    */
+    width: 100%;
+}
+
