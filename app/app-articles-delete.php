@@ -26,8 +26,8 @@ $dbh = connect(); // attention $dbh
 // TRY AND CATCH
 try {
 $sql = "DELETE
-        FROM blog.posts
-        WHERE id = :id"; // Utiliser :id et pas $_GET car on fait une requete preparé securisé.
+        FROM 2018_blog.posts
+        WHERE 2018_blog.posts.id = :id"; // Utiliser :id et pas $_GET car on fait une requete preparé securisé.
 
 // 04. Execution de la requete
 
@@ -43,7 +43,7 @@ catch (PDOException $e) {
 unlink('../assets/img/'.$_GET['image']); // $_GET dans ce cas
 
 // 05. Redirection
-// On le fait avec un Entete HTTP.
+// On le fait avec un Entête HTTP.
 
 header('location:../index.php?type=articles');
 

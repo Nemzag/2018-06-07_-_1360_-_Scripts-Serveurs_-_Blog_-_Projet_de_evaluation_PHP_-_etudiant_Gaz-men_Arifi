@@ -21,11 +21,11 @@ if($_SESSION['level'] == 'user') {
     // QUERY POUR VERIFIER LA PRESENCE DU LOGIN
 
     try {
-        $sql = "SELECT blog.users.login, 
-                       blog.users.password,
-                       blog.users.level
-                FROM blog.users
-                WHERE users.login = :login";
+        $sql = "SELECT 2018_blog.users.login, 
+                       2018_blog.users.password,
+                       2018_blog.users.level
+                FROM 2018_blog.users
+                WHERE 2018_blog.users.login = :login";
 
         $result = $dbh->prepare($sql);
 
@@ -76,11 +76,11 @@ if($_SESSION['level'] == 'user') {
     // QUERY POUR VERIFIER LA PRESENCE DU LOGIN
 
     try {
-        $sql = "SELECT blog.users.login,
-                       blog.users.password,
-                       blog.users.level
-                FROM blog.users
-                WHERE users.login = :login";
+        $sql = "SELECT 2018_blog.users.login,
+                       2018_blog.users.password,
+                       2018_blog.users.level
+                FROM 2018_blog.users
+                WHERE 2018_blog.users.login = :login";
 
         $result = $dbh->prepare($sql);
 
@@ -92,7 +92,7 @@ if($_SESSION['level'] == 'user') {
 
         $row = $result->fetchObject(); // fetch(PDO::FETCH_OBJ);
     } catch (PDOException $e) {
-        die('Erreur requete : ' . $e->getMessage());
+        die('Erreur requête : ' . $e->getMessage());
     }
 
     // var_dump($row);echo '<br>';

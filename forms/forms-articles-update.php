@@ -12,10 +12,10 @@ if(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator') :
 // TRY AND CATCH
 try {
 
-    $sql = "SELECT blog.posts.idCategory, blog.categories.category
-        FROM blog.categories
-        LEFT JOIN blog.posts
-        ON blog.posts.idCategory = blog.categories.id
+    $sql = "SELECT 2018_blog.posts.idCategory, 2018_blog.categories.category
+        FROM 2018_blog.categories
+        LEFT JOIN 2018_blog.posts
+        ON 2018_blog.posts.idCategory = 2018_blog.categories.id
         GROUP BY category
         ORDER BY category";
 
@@ -23,19 +23,19 @@ try {
     $resultCategory->bindValue('id', $_GET['id'], PDO::PARAM_INT);
     $resultCategory->execute();
 
-    $sql = "SELECT posts.id,
-                   posts.title,
-                   posts.content,
-                   posts.created,
-                   posts.image,
-                   posts.idCategory,
-                   posts.idUser,
-                   posts.visibility,
-                   users.firstName,
-                   users.lastName
-            FROM blog.posts
-            LEFT JOIN blog.users ON posts.idUser = users.id
-            WHERE posts.id = :id";
+    $sql = "SELECT 2018_blog.posts.id,
+                   2018_blog.posts.title,
+                   2018_blog.posts.content,
+                   2018_blog.posts.created,
+                   2018_blog.posts.image,
+                   2018_blog.posts.idCategory,
+                   2018_blog.posts.idUser,
+                   2018_blog.posts.visibility,
+                   2018_blog.users.firstName,
+                   2018_blog.users.lastName
+            FROM 2018_blog.posts
+            LEFT JOIN 2018_blog.users ON 2018_blog.posts.idUser = 2018_blog.users.id
+            WHERE 2018_blog.posts.id = :id";
 
     $resultUpdate = $dbh->prepare($sql);
 
@@ -53,12 +53,12 @@ catch (PDOException $e) {
     <!-- FirstName -->
     <div class="form-group">
         <?php while ($row = $resultUpdate->fetch(PDO::FETCH_OBJ)) : ?>
-        <input type="text" class="form-control" id="firstName"  placeholder="Inséré votre prénom." value="<?= $row->firstName ?>" disabled>
+        <input type="text" class="form-control" id="firstName"  placeholder="Inséré votre prénom." title="Inséré votre prénom." value="<?= $row->firstName ?>" disabled>
     </div>
 
     <!-- LastName -->
     <div class="form-group">
-        <input type="text" class="form-control" id="lastName" placeholder="Inséré votre nom." value="<?= $row->lastName ?>" disabled>
+        <input type="text" class="form-control" id="lastName" placeholder="Inséré votre nom." title="Inséré votre nom." value="<?= $row->lastName ?>" disabled>
     </div>
 
     <!-- idUser -->
@@ -81,12 +81,12 @@ catch (PDOException $e) {
 
     <!-- Title -->
     <div class="form-group">
-        <input type="text" class="form-control" id="title" name="title" placeholder="Inséré le titre." value="<?= $row->title ?>" required>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Inséré le titre." title="Inséré le titre." value="<?= $row->title ?>" required>
     </div>
 
     <!-- Content -->
     <div class="form-group">
-        <textarea class="form-control" id="content" name="content" placeholder="Inséré le contenue." rows="5" required><?= $row->content ?></textarea>
+        <textarea class="form-control" id="content" name="content" placeholder="Inséré le contenue." title="Inséré le contenue." rows="5" required><?= $row->content ?></textarea>
     </div>
 
     <!-- Image -->

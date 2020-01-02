@@ -16,9 +16,9 @@ if(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator') {
     $dbh = connect();
 
     try {
-        $sql = "UPDATE posts
-                SET visibility = :visibility      
-                WHERE posts.id = :id";
+        $sql = "UPDATE 2018_blog.posts
+                SET 2018_blog.visibility = :visibility      
+                WHERE 2018_blog.posts.id = :id";
 
         $result = $dbh->prepare($sql);
 

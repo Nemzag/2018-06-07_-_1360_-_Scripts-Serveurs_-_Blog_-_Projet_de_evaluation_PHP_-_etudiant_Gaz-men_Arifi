@@ -12,9 +12,9 @@ if(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator') :
 // TRY AND CATCH
 try {
     $sql = "SELECT *
-            FROM blog.users
-            GROUP BY blog.users.level
-            ORDER BY blog.users.level";
+            FROM 2018_blog.users
+            GROUP BY 2018_blog.users.level
+            ORDER BY 2018_blog.users.level";
 
     $resultInsertUsers = $dbh->prepare($sql);
 
@@ -73,9 +73,9 @@ try {
 // TRY AND CATCH
     try {
         $sql = "SELECT *
-                FROM blog.users
-                GROUP BY blog.users.level
-                ORDER BY blog.users.level";
+                FROM 2018_blog.users
+                GROUP BY 2018_blog.users.level
+                ORDER BY 2018_blog.users.level";
 
         $resultInsertUsers = $dbh->prepare($sql);
 

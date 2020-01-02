@@ -16,7 +16,7 @@ require '../library/connection.php';
 $dbh = connect();
 
 try {
-$sql = "INSERT INTO blog.posts (title, content, created, image, idCategory, idUser, visibility) 
+$sql = "INSERT INTO 2018_blog.posts (title, content, created, image, idCategory, idUser, visibility) 
         VALUES (:title, :content, :created, :image, :idCategory, :idUser, :visibility)";
 
 $result = $dbh->prepare($sql);
@@ -47,7 +47,7 @@ catch (PDOException $e) {
 // TRANSFERT DU FICHIER
 
 if(move_uploaded_file($_FILES['image']['tmp_name'], '../assets/img/'.$_FILES['image']['name'])) {
-    echo 'Reussite';
+    echo 'Réussite';
     header('location: ../index.php?type=articles');
 } else {
     echo 'Echec';

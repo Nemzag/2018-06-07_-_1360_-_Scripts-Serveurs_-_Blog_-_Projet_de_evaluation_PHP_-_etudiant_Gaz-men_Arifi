@@ -20,8 +20,8 @@ try {
     $dbh = connect();
 
     $sql = "SELECT COUNT(title) AS total
-            FROM blog.posts
-            WHERE blog.posts.visibility = 1";
+            FROM 2018_blog.posts
+            WHERE 2018_blog.posts.visibility = 1";
 
     $result = $dbh->query($sql);
     $req = $result->fetch();
@@ -59,8 +59,8 @@ elseif(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator' && $_S
         $dbh = connect();
 
         $sql = "SELECT COUNT(title) AS total
-            FROM blog.posts
-            WHERE blog.posts.visibility = 1";
+            FROM 2018_blog.posts
+            WHERE 2018_blog.posts.visibility = 1";
 
         $result = $dbh->query($sql);
         $req = $result->fetch();
@@ -97,8 +97,8 @@ elseif(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator' && $_S
         $dbh = connect();
 
         $sql = "SELECT COUNT(title) AS total
-            FROM blog.posts
-            WHERE blog.posts.visibility = 1";
+            FROM 2018_blog.posts
+            WHERE 2018_blog.posts.visibility = 1";
 
         $result = $dbh->query($sql);
         $req = $result->fetch();
@@ -137,7 +137,7 @@ elseif($_SESSION['level'] == 'administrator' && $_SESSION['type'] == 'articles')
         $dbh = connect();
 
         $sql = "SELECT COUNT(title) AS total
-            FROM blog.posts";
+            FROM 2018_blog.posts";
 
         $result = $dbh->query($sql);
         $req = $result->fetch();
@@ -175,8 +175,8 @@ elseif($_SESSION['level'] == 'administrator' && $_SESSION['type'] == 'users') {
     try {
         $dbh = connect();
 
-        $sql = "SELECT COUNT(blog.users.id) AS total
-            FROM blog.users";
+        $sql = "SELECT COUNT(2018_blog.users.id) AS total
+            FROM 2018_blog.users";
 
         $result = $dbh->query($sql);
         $req = $result->fetch();
@@ -215,8 +215,8 @@ if(!isset($_SESSION['level'])) {
         $dbh = connect();
 
         $sql = "SELECT COUNT(title) AS total
-            FROM posts
-            WHERE visibility = 1";
+            FROM 2018_blog.posts
+            WHERE 2018_blog.posts.visibility = 1";
 
         $result = $dbh->query($sql);
         $req = $result->fetch();

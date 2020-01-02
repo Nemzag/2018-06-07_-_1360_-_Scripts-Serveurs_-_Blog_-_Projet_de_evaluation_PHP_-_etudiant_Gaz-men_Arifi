@@ -17,7 +17,7 @@ if(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator') :
     $dbh = connect();
 
     try {
-        $sql = "UPDATE blog.users
+        $sql = "UPDATE 2018_blog.users
                 SET users.firstName = :firstName, 
                     users.lastName = :lastName,
                     users.mail = :mail,

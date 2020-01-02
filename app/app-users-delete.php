@@ -26,8 +26,8 @@ if(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator') :
 // TRY AND CATCH
     try {
         $sql = "DELETE
-        FROM blog.users
-        WHERE id = :id"; // Utiliser :id et pas $_GET car on fait une requete preparé securisé.
+        FROM 2018_blog.users
+        WHERE 2018_blog.users.id = :id"; // Utiliser :id et pas $_GET car on fait une requete preparé securisé.
 
 // 04. Execution de la requete
 

@@ -16,14 +16,14 @@ require '../library/connection.php';
 $dbh = connect();
 
 try {
-    $sql = "UPDATE blog.posts
-            SET posts.title = :title, 
-                posts.content = :content,
-                posts.created = :created,
-                posts.image = :image,
-                posts.idCategory = :idCategory,
-                posts.visibility = :visibility
-            WHERE id = :idPosts";
+    $sql = "UPDATE 2018_blog.posts
+            SET 2018_blog.posts.title = :title, 
+                2018_blog.posts.content = :content,
+                2018_blog.posts.created = :created,
+                2018_blog.posts.image = :image,
+                2018_blog.posts.idCategory = :idCategory,
+                2018_blog.posts.visibility = :visibility
+            WHERE 2018_blog.posts.id = :idPosts";
 
     $result = $dbh->prepare($sql);
 
@@ -40,7 +40,7 @@ try {
     if(!empty($_FILES['image'])) {
         move_uploaded_file($_FILES['image']['tmp_name'], '../assets/img/' . $_FILES['image']['name']);
         /*
-        ICI IL Y A UN PROBLEME, SI JE L'ACTIVE ET QUE JE NE CHANGE PAS L'IMAGE, IL L'EFFACE QUAND MEME...
+        ICI IL Y A UN PROBLÈME, SI JE L'ACTIVE ET QUE JE NE CHANGE PAS L'IMAGE, IL L'EFFACE QUAND MEME...
 */
         if($_FILES['image']['name'] == $_POST['image-original']) {
             // NOTHING HAPPEN

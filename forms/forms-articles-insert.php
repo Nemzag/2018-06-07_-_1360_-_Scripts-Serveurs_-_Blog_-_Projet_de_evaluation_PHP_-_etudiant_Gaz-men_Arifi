@@ -11,18 +11,18 @@ if(isset($_SESSION['login']) && $_SESSION['level'] == 'administrator') :
 
 // TRY AND CATCH
 try {
-    $sql = "SELECT blog.posts.idCategory, blog.categories.category
-			FROM blog.categories
-			LEFT JOIN blog.posts
-			ON blog.posts.idCategory = blog.categories.id
-			GROUP BY category
-			ORDER BY category";
+    $sql = "SELECT 2018_blog.posts.idCategory, 2018_blog.categories.category
+			FROM 2018_blog.categories
+			LEFT JOIN 2018_blog.posts
+			ON 2018_blog.posts.idCategory = 2018_blog.categories.id
+			GROUP BY 2018_blog.categories.category
+			ORDER BY 2018_blog.categories.category";
 
     $resultCategory = $dbh->query($sql);
 
     $sql = "SELECT *
-        FROM blog.users
-        WHERE login = :veriflogin";
+        FROM 2018_blog.users
+        WHERE 2018_blog.users.login = :veriflogin";
 
     $resultLogin = $dbh->prepare($sql);
 
@@ -40,7 +40,7 @@ catch (PDOException $e) {
     <!-- FirstName -->
     <div class="form-group">
         <?php while ($row = $resultLogin->fetch(PDO::FETCH_OBJ)) : ?>
-        <input type="text" class="form-control" id="firstName"  placeholder="Inséré votre prénom." value="<?= $row->firstName ?>" readonly>
+        <input type="text" class="form-control" id="firstName"  placeholder="Inséré votre prénom." value="<?= $row->firstName ?>" title="Inséré votre prénom." readonly>
     </div>
 
     <!-- LastName -->
@@ -69,12 +69,12 @@ catch (PDOException $e) {
 
     <!-- Title -->
     <div class="form-group">
-        <input type="text" class="form-control" id="title" name="title" placeholder="Inséré le titre." required>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Inséré le titre." title="Inséré le titre." required>
     </div>
 
     <!-- Content -->
     <div class="form-group">
-        <textarea class="form-control" id="content" name="content" placeholder="Inséré le contenue." rows="5" required></textarea>
+        <textarea class="form-control" id="content" name="content" placeholder="Inséré le contenue." title="Inséré le contenue." rows="5" required></textarea>
     </div>
 
     <!-- Image -->
@@ -87,7 +87,7 @@ catch (PDOException $e) {
         <select class="form-control" id="idCategory" name="idCategory" title="" required>
             <option value="<?= null ?>">Sélectionnez la catégorie...</option>
             <?php while ($row = $resultCategory->fetch(PDO::FETCH_OBJ)) : ?>
-                <option value="<?= $row->idCategory ?>"><?= $row->category ?></optionrequired>
+                <option value="<?= $row->idCategory ?>"><?= $row->category ?></option >
             <?php endwhile; ?>
         </select>
     </div>

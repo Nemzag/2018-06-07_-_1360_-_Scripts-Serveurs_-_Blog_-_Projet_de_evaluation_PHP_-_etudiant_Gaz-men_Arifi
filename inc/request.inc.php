@@ -24,22 +24,22 @@ try {
 
     // SORT, SECTION VISITOR & USER, SEARCH
     if ($_GET['search'] && ($_SESSION['level'] != 'administrator')) {
-        $sql = "SELECT blog.posts.id,
-                       blog.posts.title,
-                       blog.posts.created,
-                       blog.posts.image,
-                       blog.categories.category,
-                       blog.users.firstName,
-                       blog.users.lastName
-                FROM blog.posts
-                LEFT JOIN blog.categories ON posts.idCategory = categories.id
-                LEFT JOIN blog.users ON posts.idUser = users.id
-                WHERE blog.posts.title LIKE :search
-                   OR blog.posts.created LIKE :search
-                   OR blog.posts.image LIKE :search
-                   OR blog.categories.category LIKE :search
-                   OR blog.users.firstName LIKE :search
-                   OR blog.users.lastName LIKE :search
+        $sql = "SELECT 2018_blog.posts.id,
+                       2018_blog.posts.title,
+                       2018_blog.posts.created,
+                       2018_blog.posts.image,
+                       2018_blog.categories.category,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName
+                FROM 2018_blog.posts
+                LEFT JOIN 2018_blog.categories ON posts.idCategory = categories.id
+                LEFT JOIN 2018_blog.users ON posts.idUser = users.id
+                WHERE 2018_blog.posts.title LIKE :search
+                   OR 2018_blog.posts.created LIKE :search
+                   OR 2018_blog.posts.image LIKE :search
+                   OR 2018_blog.categories.category LIKE :search
+                   OR 2018_blog.users.firstName LIKE :search
+                   OR 2018_blog.users.lastName LIKE :search
                 ORDER BY {$_GET['field']} {$_GET['order']}";
 
         $_GET['order'] = ($_GET['order'] == 'ASC') ? 'DESC' : 'ASC';
@@ -51,24 +51,24 @@ try {
 
         // SORT, SECTION ADMINISTRATION, SEARCH
     } elseif ($_GET['search'] && $_SESSION['level'] == 'administrator' && ($_SESSION['type'] == 'administration')) { // ICI PROBLEME
-        $sql = "SELECT blog.posts.id,
-                       blog.posts.title,
-                       blog.posts.created,
-                       blog.categories.category,
-                       blog.posts.image,
-                       blog.users.firstName,
-                       blog.users.lastName,
-                       blog.posts.visibility
-                FROM blog.posts
-                LEFT JOIN blog.categories ON posts.idCategory = categories.id
-                LEFT JOIN blog.users ON posts.idUser = users.id
-                WHERE (blog.posts.title LIKE :search
-                   OR blog.posts.created LIKE :search
-                   OR blog.posts.image LIKE :search
-                   OR blog.categories.category LIKE :search
-                   OR blog.users.firstName LIKE :search
-                   OR blog.users.lastName LIKE :search)
-                   AND blog.posts.visibility = 1
+        $sql = "SELECT 2018_blog.posts.id,
+                       2018_blog.posts.title,
+                       2018_blog.posts.created,
+                       2018_blog.categories.category,
+                       2018_blog.posts.image,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName,
+                       2018_blog.posts.visibility
+                FROM 2018_blog.posts
+                LEFT JOIN 2018_blog.categories ON posts.idCategory = categories.id
+                LEFT JOIN 2018_blog.users ON posts.idUser = users.id
+                WHERE (2018_blog.posts.title LIKE :search
+                   OR 2018_blog.posts.created LIKE :search
+                   OR 2018_blog.posts.image LIKE :search
+                   OR 2018_blog.categories.category LIKE :search
+                   OR 2018_blog.users.firstName LIKE :search
+                   OR 2018_blog.users.lastName LIKE :search)
+                   AND 2018_blog.posts.visibility = 1
                 ORDER BY {$_GET['field']} {$_GET['order']}"; // ERROR
 
         $_GET['order'] = ($_GET['order'] == 'ASC') ? 'DESC' : 'ASC';
@@ -80,18 +80,18 @@ try {
 
         // SORT, SECTION ADMINISTRATION
     } elseif ($_SESSION['level'] == 'administrator' && ($_SESSION['type'] == 'administration')) { // ICI PROBLEME
-        $sql = "SELECT blog.posts.id,
-                       blog.posts.title,
-                       blog.posts.created,
-                       blog.categories.category,
-                       blog.posts.image,
-                       blog.users.firstName,
-                       blog.users.lastName,
-                       blog.posts.visibility
-                FROM blog.posts
-                LEFT JOIN blog.categories ON posts.idCategory = categories.id
-                LEFT JOIN blog.users ON posts.idUser = users.id
-                WHERE blog.posts.visibility = 1
+        $sql = "SELECT 2018_blog.posts.id,
+                       2018_blog.posts.title,
+                       2018_blog.posts.created,
+                       2018_blog.categories.category,
+                       2018_blog.posts.image,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName,
+                       2018_blog.posts.visibility
+                FROM 2018_blog.posts
+                LEFT JOIN 2018_blog.categories ON posts.idCategory = categories.id
+                LEFT JOIN 2018_blog.users ON posts.idUser = users.id
+                WHERE 2018_blog.posts.visibility = 1
                 ORDER BY {$_GET['field']} {$_GET['order']}
                 LIMIT $firstOfPage, $perPage"; // ERROR
 
@@ -106,23 +106,23 @@ try {
 
     // SORT, SECTION ARTICLES, SEARCHED
     elseif ($_SESSION['type'] == 'articles' && isset($_GET['search']) && !isset($_GET['id'])) {
-        $sql = "SELECT blog.posts.id,
-                       blog.posts.title,
-                       blog.posts.created,
-                       blog.posts.image,
-                       blog.categories.category,
-                       blog.users.firstName,
-                       blog.users.lastName,
-                       blog.posts.visibility
-                FROM blog.posts
-                LEFT JOIN blog.categories ON posts.idCategory = categories.id
-                LEFT JOIN blog.users ON posts.idUser = users.id
-                WHERE blog.posts.title LIKE :search
-                   OR blog.posts.created LIKE :search
-                   OR blog.posts.image LIKE :search
-                   OR blog.categories.category LIKE :search
-                   OR blog.users.firstName LIKE :search
-                   OR blog.users.lastName LIKE :search
+        $sql = "SELECT 2018_blog.posts.id,
+                       2018_blog.posts.title,
+                       2018_blog.posts.created,
+                       2018_blog.posts.image,
+                       2018_blog.categories.category,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName,
+                       2018_blog.posts.visibility
+                FROM 2018_blog.posts
+                LEFT JOIN 2018_blog.categories ON posts.idCategory = categories.id
+                LEFT JOIN 2018_blog.users ON posts.idUser = users.id
+                WHERE 2018_blog.posts.title LIKE :search
+                   OR 2018_blog.posts.created LIKE :search
+                   OR 2018_blog.posts.image LIKE :search
+                   OR 2018_blog.categories.category LIKE :search
+                   OR 2018_blog.users.firstName LIKE :search
+                   OR 2018_blog.users.lastName LIKE :search
                 ORDER BY {$_GET['field']} {$_GET['order']}";
 
         $_GET['order'] = ($_GET['order'] == 'ASC') ? 'DESC' : 'ASC';
@@ -145,8 +145,8 @@ try {
                        users.mail,
                        posts.visibility
                 FROM posts
-                LEFT JOIN blog.categories ON posts.idCategory = categories.id
-                LEFT JOIN blog.users ON posts.idUser = users.id
+                LEFT JOIN 2018_blog.categories ON posts.idCategory = categories.id
+                LEFT JOIN 2018_blog.users ON posts.idUser = users.id
                 ORDER BY {$_GET['field']} {$_GET['order']}
                 LIMIT $firstOfPage, $perPage";
 
@@ -159,19 +159,19 @@ try {
 
     } // SORT, SECTION USERS, SEARCHED
     elseif ($_SESSION['type'] == 'users' && $_SESSION['level'] == 'administrator' && isset($_GET['search']) && !empty($_GET['field'])) {
-        $sql = "SELECT users.id,
-                       users.firstName,
-                       users.lastName,
-                       users.mail,
-                       users.login,
-                       users.password,
-                       users.level
-                FROM users
-                WHERE users.firstName LIKE :search
-                   OR users.lastName LIKE :search
-                   OR users.mail LIKE :search
-                   OR users.login LIKE :search
-                   OR users.level LIKE :search
+        $sql = "SELECT 2018_blog.users.id,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName,
+                       2018_blog.users.mail,
+                       2018_blog.users.login,
+                       2018_blog.users.password,
+                       2018_blog.users.level
+                FROM 2018_blog.users
+                WHERE 2018_blog.users.firstName LIKE :search
+                   OR 2018_blog.users.lastName LIKE :search
+                   OR 2018_blog.users.mail LIKE :search
+                   OR 2018_blog.users.login LIKE :search
+                   OR 2018_blog.users.level LIKE :search
                 
                 ORDER BY {$_GET['field']} {$_GET['order']}";
 
@@ -185,15 +185,15 @@ try {
 
         // // SORT, SECTION USERS
     } elseif (($_GET['type'] == 'users') && $_GET['field'] == 'none') {
-        $sql = "SELECT users.id,
-                       users.firstName,
-                       users.lastName,
-                       users.mail,
-                       users.login,
-                       users.password,
-                       users.level
-                FROM users
-                ORDER BY users.level ASC, users.firstName DESC
+        $sql = "SELECT 2018_blog.users.id,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName,
+                       2018_blog.users.mail,
+                       2018_blog.users.login,
+                       2018_blog.users.password,
+                       2018_blog.users.level
+                FROM 2018_blog.users
+                ORDER BY 2018_blog.users.level ASC, 2018_blog.users.firstName DESC
                 LIMIT $firstOfPage, $perPage";
 
         $resultUsers = $dbh->prepare($sql);
@@ -231,8 +231,8 @@ try {
                users.lastName,
                users.mail
         FROM posts
-        LEFT JOIN blog.categories ON posts.idCategory = categories.id
-        LEFT JOIN blog.users ON posts.idUser = users.id
+        LEFT JOIN 2018_blog.categories ON posts.idCategory = categories.id
+        LEFT JOIN 2018_blog.users ON posts.idUser = users.id
         WHERE posts.id = :id
     LIMIT 1";
         $result = $dbh->prepare($sql);
@@ -242,18 +242,18 @@ try {
 
         // DEFAULT
     } elseif ($_GET['field'] || $_GET['order']) {
-        $sql = "SELECT blog.posts.id,
-                       blog.posts.title,
-                       blog.posts.created,
-                       blog.posts.image,
-                       blog.categories.category,
-                       blog.users.firstName,
-                       blog.users.lastName,
-                       blog.posts.visibility
-            FROM blog.posts
-            LEFT JOIN blog.categories ON posts.idCategory = categories.id
-            LEFT JOIN blog.users ON posts.idUser = users.id
-            WHERE blog.posts.visibility = 1
+        $sql = "SELECT 2018_blog.posts.id,
+                       2018_blog.posts.title,
+                       2018_blog.posts.created,
+                       2018_blog.posts.image,
+                       2018_blog.categories.category,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName,
+                       2018_blog.posts.visibility
+            FROM 2018_blog.posts
+            LEFT JOIN 2018_blog.categories ON posts.idCategory = categories.id
+            LEFT JOIN 2018_blog.users ON posts.idUser = users.id
+            WHERE 2018_blog.posts.visibility = 1
             ORDER BY {$_GET['field']} {$_GET['order']}
             LIMIT $firstOfPage, $perPage"; // Attention des accolades
 

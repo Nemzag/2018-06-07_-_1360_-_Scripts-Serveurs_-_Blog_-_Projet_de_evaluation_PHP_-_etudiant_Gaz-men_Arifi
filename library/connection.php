@@ -7,7 +7,7 @@
  */
 
 function connect() {
-    $dsn = 'mysql:dbname=blog;host=localhost;charset=utf8';
+    $dsn = 'mysql:dbname=2018_blog;host=localhost;charset=utf8';
     $userName = 'root';
     $passwd = '';
     try {

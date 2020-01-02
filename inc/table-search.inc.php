@@ -23,8 +23,11 @@ require 'users-title.php';
             <th scope="col"><a href="?type=articles&amp;field=category&amp;order=<?= $_GET['order'] ?>&amp;search=<?= $_GET['search']?>">Categorie&nbsp;<i class="fas fa-sort"></i></a></th>
             <th scope="col"><a href="?type=articles&amp;field=firstName&amp;order=<?= $_GET['order'] ?>&amp;search=<?= $_GET['search']?>">Prénom&nbsp;<i class="fas fa-sort"></i></a></th>
             <th scope="col"><a href="?type=articles&amp;field=lastName&amp;order=<?= $_GET['order'] ?>&amp;search=<?= $_GET['search']?>">Nom&nbsp;<i class="fas fa-sort"></i></a></th>
-            <th>Suppression</th>
+
             <th>Mise à jour</th>
+
+            <th>Suppression</th>
+
             <th scope="col"><a href="?type=articles&amp;field=visibility&amp;order=<?= $_GET['order'] ?>&amp;search=<?= $_GET['search']?>">Visibilitée <i class="fas fa-sort"></th>
         </tr>
         </thead>
@@ -37,9 +40,12 @@ require 'users-title.php';
             <td><?= $row->category ?></td>
             <td><?= $row->firstName ?></td>
             <td><?= $row->lastName ?></td>
-            <td><a href="app/app-articles-delete.php?id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i class="fas fa-times"></i></a>
+
+            <td><a href="?action=update&amp;type=articles&amp;id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i class="fas fa-pencil-alt" style="color: green;"></i></a></td>
+
+            <td><a href="app/app-articles-delete.php?id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i class="fas fa-times"  style="color: red;"></i></a>
             </td> <!--On le place sous la forme d'un parametre.-->
-            <td><a href="?action=update&amp;type=articles&amp;id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i class="fas fa-pencil-alt"></i></a></td>
+
             <td><a href="app/app-visibility.php?type=articles&amp;id=<?= $row->id ?>&amp;visibility=<?= $row->visibility == 1 ? 0 : 1 ?>&amp;search=<?= $_GET['search']?>"><?= ($row->visibility == 1) ? '<i style="color: #1B5E20;" class="fas fa-eye">' : '<i style="color: #b71c1c;" class="fas fa-eye-slash"></i>'; ?></a></td>
         </tr>
         <?php endwhile; ?>
@@ -59,8 +65,10 @@ require 'users-title.php';
             <th scope="col"><a href="?type=users&amp;field=login&amp;order=<?= $_GET['order'] ?>">Login&nbsp;<i class="fas fa-sort"></i></a></th>
             <th scope="col"><a href="?type=users&amp;field=password&amp;order=<?= $_GET['order'] ?>">Password &nbsp;<i class="fas fa-sort"></i></a></th>
             <th scope="col"><a href="?type=users&amp;field=level&amp;order=<?= $_GET['order'] ?>">Level &nbsp;<i class="fas fa-sort"></i></a></th>
-            <th>Suppression</th>
+
             <th>Mise à jour</th>
+
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
@@ -72,9 +80,12 @@ require 'users-title.php';
             <td><?= $row->login ?></td>
             <td><?= strrchr('$2y$10$', $row->password) ?>...</td>
             <td><?= $row->level ?>...</td>
-            <td><a href="app/app-users-delete.php?id=<?= $row->id ?>"><i class="fas fa-times"></i></a>
+
+            <td><a href="?action=update&amp;type=users&amp;id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i class="fas fa-pencil-alt" style="color: green;"></i></a></td>
+
+            <td><a href="app/app-users-delete.php?id=<?= $row->id ?>"><i class="fas fa-times" style="color: red;"></i></a>
             </td> <!--On le place sous la forme d'un parametre.-->
-            <td><a href="?action=update&amp;type=users&amp;id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i class="fas fa-pencil-alt"></i></a></td>
+
         </tr>
         <?php endwhile; ?>
     </tbody>

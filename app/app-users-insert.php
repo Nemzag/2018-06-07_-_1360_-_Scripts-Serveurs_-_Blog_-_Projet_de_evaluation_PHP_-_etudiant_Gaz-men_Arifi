@@ -16,7 +16,7 @@ require '../library/connection.php';
 $dbh = connect();
 
 try {
-$sql = "INSERT INTO blog.users (firstName, lastName, mail, login, password, level) 
+$sql = "INSERT INTO 2018_blog.users (firstName, lastName, mail, login, password, level) 
         VALUES (:firstName, :lastName, :mail, :login, :password, :level)";
 
 $result = $dbh->prepare($sql);
@@ -49,7 +49,7 @@ elseif(!isset($_SESSION['login']) && $_SESSION['tmp'] == 'user') :
     $dbh = connect();
 
     try {
-        $sql = "INSERT INTO blog.users (firstName, lastName, mail, login, password, level) 
+        $sql = "INSERT INTO 2018_blog.users (firstName, lastName, mail, login, password, level) 
         VALUES (:firstName, :lastName, :mail, :login, :password, :level)";
 
         $result = $dbh->prepare($sql);

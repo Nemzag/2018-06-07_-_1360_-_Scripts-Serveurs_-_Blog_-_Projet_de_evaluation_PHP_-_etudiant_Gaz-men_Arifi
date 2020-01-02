@@ -150,8 +150,8 @@ $title = $titles ?? null;
             <th scope="col"><a
                         href="?type=articles&amp;field=lastName&amp;order=<?= $_GET['order'] ?>&amp;page=<?= $_GET['page'] ?>&amp;perpage=<?= $_GET['perpage'] ?>">Nom&nbsp;<i
                             class="fas fa-sort"></i></a></th>
-            <th>Suppression</th>
             <th>Mise à jour</th>
+            <th>Suppression</th>
             <th scope="col"><a
                         href="?type=articles&amp;field=visibility&amp;order=<?= $_GET['order'] ?>&amp;page=<?= $_GET['page'] ?>&amp;perpage=<?= $_GET['perpage'] ?>">Visibilitée
                     <i class="fas fa-sort"></th>
@@ -164,16 +164,23 @@ $title = $titles ?? null;
                          style="height: 3em; width: 4em;"></td>
                 <td scope="row"><a href="article.php?type=articles&amp;id=<?= $row->id ?>"><?= $row->title ?></a>
                 </td>
+
                 <td style="white-space: nowrap;"><?= $row->created ?></td>
+
                 <td><?= $row->category ?></td>
+
                 <td><?= $row->firstName ?></td>
+
                 <td><?= $row->lastName ?></td>
-                <td><a href="app/app-articles-delete.php?id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i
-                                class="fas fa-times"></i></a>
-                </td> <!--On le place sous la forme d'un parametre.-->
-                <td>
+
+                <td title="update">
                     <a href="?action=update&amp;type=articles&amp;id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i
-                                class="fas fa-pencil-alt"></i></a></td>
+                                class="fas fa-pencil-alt" style="color: green;"></i></a></td>
+
+                <td title="Suppress"><a href="app/app-articles-delete.php?id=<?= $row->id ?>&amp;image=<?= $row->image ?>"><i
+                                class="fas fa-times" style="color: red;"></i></a>
+                </td> <!--On le place sous la forme d'un parametre.-->
+
                 <td>
                     <a href="app/app-visibility.php?type=articles&amp;id=<?= $row->id ?>&amp;visibility=<?= $row->visibility == 1 ? 0 : 1 ?>"><?= ($row->visibility == 1) ? '<i style="color: #1B5E20;" class="fas fa-eye"></i>' : '<i style="color: #b71c1c;" class="fas fa-eye-slash"></i>'; ?></a>
                 </td>
@@ -218,8 +225,10 @@ $title = $titles ?? null;
             <th scope="col"><a
                         href="?type=users&amp;field=level&amp;order=<?= $_GET['order'] ?>&amp;page=<?= $_GET['page'] ?>&amp;perpage=<?= $_GET['perpage'] ?>">Level
                     &nbsp;<i class="fas fa-sort"></i></a></th>
-            <th>Suppression</th>
             <th>Mise à jour</th>
+
+            <th>Suppression</th>
+
         </tr>
         </thead>
         <tbody>
@@ -231,10 +240,12 @@ $title = $titles ?? null;
                 <td><?= $row->login ?></td>
                 <td><?= strrchr('$2y$10$', $row->password) ?>...</td>
                 <td><?= $row->level ?>...</td>
-                <td><a href="app/app-users-delete.php?id=<?= $row->id ?>"><i class="fas fa-times"></i></a>
-                </td> <!--On le place sous la forme d'un parametre.-->
-                <td><a href="?action=update&amp;type=users&amp;id=<?= $row->id ?>"><i class="fas fa-pencil-alt"></i></a>
+
+                <td title="update"><a href="?action=update&amp;type=users&amp;id=<?= $row->id ?>"><i class="fas fa-pencil-alt" style="color: green;"></i></a>
                 </td>
+
+                <td><a href="app/app-users-delete.php?id=<?= $row->id ?>"><i class="fas fa-times" style="color: red;"></i></a>
+                </td> <!--On le place sous la forme d'un parametre.-->
             </tr>
         <?php endwhile; ?>
         </tbody>

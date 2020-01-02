@@ -11,15 +11,15 @@ if (isset($_SESSION['login']) && $_SESSION['level'] == 'administrator') :
 
 // TRY AND CATCH
     try {
-        $sql = "SELECT users.id,
-                       users.firstName,
-                       users.lastName,
-                       users.mail,
-                       users.login,
-                       users.password,
-                       users.level
-                FROM blog.users
-                WHERE users.id = :id";
+        $sql = "SELECT 2018_blog.users.id,
+                       2018_blog.users.firstName,
+                       2018_blog.users.lastName,
+                       2018_blog.users.mail,
+                       2018_blog.users.login,
+                       2018_blog.users.password,
+                       2018_blog.users.level
+                FROM 2018_blog.users
+                WHERE 2018_blog.users.id = :id";
 
         $resultUpdate = $dbh->prepare($sql);
 
