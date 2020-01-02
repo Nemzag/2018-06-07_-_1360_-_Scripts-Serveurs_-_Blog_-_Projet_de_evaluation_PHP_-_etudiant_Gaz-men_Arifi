@@ -79,10 +79,12 @@ try {
         $result->execute();
 
         // SORT, SECTION ADMINISTRATION
-    } elseif ($_SESSION['level'] == 'administrator' && ($_SESSION['type'] == 'administration')) { // ICI PROBLEME
+    } elseif ($_SESSION['level'] == 'administrator' && ($_SESSION['type'] == 'administration' && !isset($_GET['id']))) { // ICI PROBLEME
         $sql = "SELECT 2018_blog.posts.id,
                        2018_blog.posts.title,
+                       2018_blog.posts.content,
                        2018_blog.posts.created,
+                       2018_blog.users.mail,
                        2018_blog.categories.category,
                        2018_blog.posts.image,
                        2018_blog.users.firstName,

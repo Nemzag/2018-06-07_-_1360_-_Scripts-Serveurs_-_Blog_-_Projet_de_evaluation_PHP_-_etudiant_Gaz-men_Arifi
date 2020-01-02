@@ -19,6 +19,7 @@ require 'inc/request.inc.php';
 
     <article class="jumbotron">
         <?php while ($row = $result->fetch(PDO::FETCH_OBJ)) : ?>
+
         <h1 class="display-4"><?= $row->title ?></h1>
         <p></p>
         <p class="lead">
